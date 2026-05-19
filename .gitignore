@@ -9,6 +9,8 @@ orchestrator/STUCK_LOG/
 orchestrator/WORKER_REPORTS/
 orchestrator/INTERVAL
 orchestrator/FLEET_SIZE
+orchestrator/last-canary.log
+orchestrator/last-tick.log
 
 # OS / editor
 .DS_Store
