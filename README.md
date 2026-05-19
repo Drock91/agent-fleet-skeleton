@@ -10,7 +10,7 @@ It rides your host's Claude Max subscription via OAuth, so the workers cost zero
 
 ```bash
 # 1. clone
-git clone https://github.com/<you>/agent-fleet-skeleton
+git clone https://github.com/Drock91/agent-fleet-skeleton
 cd agent-fleet-skeleton
 
 # 2. configure
