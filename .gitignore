@@ -15,6 +15,9 @@ orchestrator/last-tick.log
 # Claude Code project settings (created automatically by the CLI)
 .claude/
 
+# Aider artifacts (created by the ollama provider's agentic wrapper)
+.aider*
+
 # OS / editor
 .DS_Store
 Thumbs.db
