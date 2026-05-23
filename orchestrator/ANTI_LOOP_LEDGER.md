@@ -49,3 +49,7 @@ the rotation picker.
 - ./packs/example-research/output/synthesis/instruction-tuning-efficiency-quality-tradeoff-2025.md ← researcher (fire #7)
 - ./packs/example-research/output/findings/test-time-compute-scaling-inference-reasoning-2025.md ← synthesizer (fire #7)
 - ./packs/example-research/output/synthesis/instruction-tuning-efficiency-quality-tradeoff-2025.md ← synthesizer (fire #7)
+- ./packs/example-research/output/findings/mixture-of-experts-moe-scaling-efficiency-2025.md ← researcher (fire #8)
+- ./packs/example-research/output/synthesis/inference-economics-cost-performance-reliability-tradeoffs-2025.md ← researcher (fire #8)
+- ./packs/example-research/output/findings/mixture-of-experts-moe-scaling-efficiency-2025.md ← synthesizer (fire #8)
+- ./packs/example-research/output/synthesis/inference-economics-cost-performance-reliability-tradeoffs-2025.md ← synthesizer (fire #8)
