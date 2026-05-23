@@ -36,3 +36,6 @@ the rotation picker.
 - ./packs/example-research/output/findings/llm-hallucination-mitigation-strategies-2025.md ← researcher (fire #3)
 - ./packs/example-research/output/findings/llm-hallucination-mitigation-strategies-2025.md ← synthesizer (fire #3)
 - ./packs/example-research/output/synthesis/long-context-reasoning-measurement-gap-2025.md ← synthesizer (fire #3)
+- ./packs/example-research/output/findings/training-data-quality-synthetic-data-contamination-2025.md ← researcher (fire #4)
+- ./packs/example-research/output/findings/training-data-quality-synthetic-data-contamination-2025.md ← synthesizer (fire #4)
+- ./packs/example-research/output/synthesis/prompt-engineering-in-context-learning-capability-scaling-2025.md ← synthesizer (fire #4)

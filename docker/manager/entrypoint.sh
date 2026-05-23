@@ -52,6 +52,10 @@ log()    { printf '[manager %s] %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >&2;
 banner() { printf '\n\033[1;36m=== %s ===\033[0m\n' "$1" >&2; }
 redis()  { redis-cli -u "$REDIS_URL" "$@"; }
 
+_tmpfiles=()
+_cleanup() { [ "${#_tmpfiles[@]}" -gt 0 ] && rm -f "${_tmpfiles[@]}"; }
+trap _cleanup EXIT
+
 cd "$WORKDIR" || { log "FATAL: cannot cd to $WORKDIR"; exit 1; }
 
 # Allow git inside the bind-mounted volume.
@@ -300,9 +304,9 @@ append_supervisor() {
 }
 
 # ─── Main loop ───────────────────────────────────────────────────────────────
-fire_id=0
 while true; do
   fire_id=$((fire_id + 1))
+  redis SET fleet:fire_id "$fire_id" >/dev/null 2>&1 || true
   banner "FIRE #${fire_id} START"
 
   # Refresh live config from Redis — governor may have adjusted it last tick.
@@ -357,7 +361,7 @@ while true; do
   # orchestrator/ (it is mounted read-only — see C-01). Each result carries
   # a .new_files[] array; we accumulate ledger lines here and append once,
   # deduped, after the fire so parallel find-diff overlap can't double-list.
-  LEDGER_TMP=$(mktemp)
+  LEDGER_TMP=$(mktemp); _tmpfiles+=("$LEDGER_TMP")
   DEADLINE=$(( $(date +%s) + WORKER_TIMEOUT_MINUTES * 60 + 300 ))
   while [ "$results_collected" -lt "${#PICKED_ROLES[@]}" ]; do
     NOW=$(date +%s)

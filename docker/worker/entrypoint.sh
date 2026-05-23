@@ -43,6 +43,10 @@ ADAPTER_DIR="${ADAPTER_DIR:-/usr/local/bin/adapters}"
 log()   { printf '[%s %s] %s\n' "$WORKER_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >&2; }
 redis() { redis-cli -u "$REDIS_URL" "$@"; }
 
+_tmpfiles=()
+_cleanup() { [ "${#_tmpfiles[@]}" -gt 0 ] && rm -f "${_tmpfiles[@]}"; }
+trap _cleanup EXIT
+
 cd "$WORKDIR" || { log "FATAL: cannot cd to $WORKDIR"; exit 1; }
 
 # Load the active pack's config (web grounding, output dir, search prefs).
@@ -307,10 +311,11 @@ while true; do
   PRE_FILES=$(find "${PACK_DIR}/${OUTPUT_DIR}" -name '*.md' 2>/dev/null | sort)
 
   prompt_file=$(build_prompt "$role" "$fire_id" "$AGENT_PROVIDER")
+  _tmpfiles+=("$prompt_file")
   log "prompt built: $prompt_file ($(wc -l < "$prompt_file") lines)"
 
   # ── Run the agent: primary provider, with one-shot fallback ─────────────
-  AGENT_LOG=$(mktemp /tmp/fleet-agent-XXXXXX.log)
+  AGENT_LOG=$(mktemp /tmp/fleet-agent-XXXXXX.log); _tmpfiles+=("$AGENT_LOG")
   ACTIVE_PROVIDER="$AGENT_PROVIDER"
   ACTIVE_MODEL="$MODEL"
 
@@ -335,7 +340,7 @@ while true; do
     ACTIVE_PROVIDER="$AGENT_FALLBACK"
     ACTIVE_MODEL="$FALLBACK_MODEL"
     # Rebuild the prompt for the fallback provider's mode (agentic vs direct-gen).
-    rm -f "$prompt_file"; prompt_file=$(build_prompt "$role" "$fire_id" "$ACTIVE_PROVIDER")
+    rm -f "$prompt_file"; prompt_file=$(build_prompt "$role" "$fire_id" "$ACTIVE_PROVIDER"); _tmpfiles+=("$prompt_file")
     START_TS=$(date +%s)
     HOME="$WORKER_CLAUDE_HOME" provider_run_agent "$ACTIVE_PROVIDER" "$prompt_file" "$CLAUDE_MAX_MINUTES" "$ACTIVE_MODEL" "$AGENT_LOG"
     AGENT_EXIT=$?
