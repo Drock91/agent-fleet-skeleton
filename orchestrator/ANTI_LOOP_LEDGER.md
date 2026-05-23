@@ -69,3 +69,6 @@ the rotation picker.
 - ./packs/example-research/output/findings/bias-fairness-llms-evaluation-mitigation-2025.md ← researcher (fire #18)
 - ./packs/example-research/output/findings/bias-fairness-llms-evaluation-mitigation-2025.md ← synthesizer (fire #18)
 - ./packs/example-research/output/synthesis/trustworthy-ai-systems-fact-verification-value-alignment-2025.md ← synthesizer (fire #18)
+- ./packs/example-research/output/findings/uncertainty-quantification-confidence-calibration-llms-2025.md ← researcher (fire #19)
+- ./packs/example-research/output/findings/uncertainty-quantification-confidence-calibration-llms-2025.md ← synthesizer (fire #19)
+- ./packs/example-research/output/synthesis/llm-self-awareness-reliability-abstention-gap-2025.md ← synthesizer (fire #19)
