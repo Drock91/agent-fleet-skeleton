@@ -92,3 +92,6 @@ the rotation picker.
 - ./packs/example-research/output/synthesis/post-deployment-model-adaptation-weight-tuning-continual-learning-prompt-optimization-2025.md ← synthesizer (fire #25)
 - ./packs/example-research/output/findings/direct-preference-optimization-alignment-beyond-rlhf-2025.md ← researcher (fire #25)
 - ./packs/example-research/output/synthesis/post-deployment-model-adaptation-weight-tuning-continual-learning-prompt-optimization-2025.md ← researcher (fire #25)
+- ./packs/example-research/output/findings/transformer-alternatives-efficient-attention-mechanisms-2025.md ← researcher (fire #26)
+- ./packs/example-research/output/findings/transformer-alternatives-efficient-attention-mechanisms-2025.md ← synthesizer (fire #26)
+- ./packs/example-research/output/synthesis/benchmark-deployment-capability-measurement-gap-2025.md ← synthesizer (fire #26)
