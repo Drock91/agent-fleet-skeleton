@@ -98,3 +98,6 @@ the rotation picker.
 - ./packs/example-research/output/findings/program-synthesis-code-generation-llms-2025.md ← researcher (fire #27)
 - ./packs/example-research/output/findings/program-synthesis-code-generation-llms-2025.md ← synthesizer (fire #27)
 - ./packs/example-research/output/synthesis/efficiency-strategies-architecture-routing-sparsity-parameter-reduction-2025.md ← synthesizer (fire #27)
+- ./packs/example-research/output/findings/reasoning-verification-self-correction-mechanisms-2025.md ← researcher (fire #28)
+- ./packs/example-research/output/findings/reasoning-verification-self-correction-mechanisms-2025.md ← synthesizer (fire #28)
+- ./packs/example-research/output/synthesis/reliability-at-scale-hallucination-uncertainty-knowledge-integration-2025.md ← synthesizer (fire #28)
